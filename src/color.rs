@@ -11,7 +11,7 @@ pub struct Color {
 
 impl Color {
     pub const fn rgb(r: f32, g: f32, b: f32) -> Self {
-        Self { r, g, b, a: 255.0 }
+        Self { r, g, b, a: 1.0 }
     }
     pub const fn rgba(r: f32, g: f32, b: f32, a: f32) -> Self {
         Self { r, g, b, a }
@@ -23,7 +23,7 @@ impl Color {
     /// assert_eq!(Color::rgb(255.0, 255.0, 255.0), Color::u_rgb(0xFF, 0xFF, 0xFF));
     /// ```
     pub const fn u_rgb(r: u8, g: u8, b: u8) -> Self {
-        Self::rgb(r as _, g as _, b as _)
+        Self::rgb(r as f32 / 255.0, g as f32 / 255.0, b as f32 / 255.0)
     }
     /// Allows using hex values to build colors
     /// ```
@@ -31,7 +31,7 @@ impl Color {
     /// assert_eq!(Color::rgba(255.0, 255.0, 255.0, 255.0), Color::u_rgba(0xFF, 0xFF, 0xFF, 0xFF));
     /// ```
     pub const fn u_rgba(r: u8, g: u8, b: u8, a: u8) -> Self {
-        Self::rgba(r as _, g as _, b as _, a as _)
+        Self::rgba(r as f32 / 255.0, g as f32 / 255.0, b as f32 / 255.0, a as f32 / 255.0)
     }
 }
 
