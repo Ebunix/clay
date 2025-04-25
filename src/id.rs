@@ -8,7 +8,7 @@ pub struct Id {
 impl Id {
     /// Creates a clay id using the `label`
     #[inline]
-    pub(crate) fn new(label: &str) -> Id {
+    pub fn new(label: &str) -> Id {
         Self::new_index(label, 0)
     }
 
